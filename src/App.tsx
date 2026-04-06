@@ -1,4 +1,4 @@
-/**
+/**import MarketData from "./MarketData";
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -181,7 +181,7 @@ export default function App() {
                 <button onClick={() => setIsProfileModalOpen(false)} className="text-gray-500 hover:text-white">
                   <RefreshCw size={20} className="rotate-45" />
                 </button>
-              </div>
+              </div><MarketData />
               
               <div className="p-6 space-y-6 max-h-[70vh] overflow-y-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

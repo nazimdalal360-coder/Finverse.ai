@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { 
+import { import MarketData from "./MarketData";}
   TrendingUp, 
   TrendingDown, 
   BarChart3, 

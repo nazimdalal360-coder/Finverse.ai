@@ -157,6 +157,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0a0c10] text-gray-100 font-sans selection:bg-blue-500/30">
       {/* Profile Modal */}
+      <MarketData />
       <AnimatePresence>
         {isProfileModalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">

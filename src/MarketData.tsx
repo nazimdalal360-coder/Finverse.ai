@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react";
 
 function MarketData() {
-  const [price, setPrice] = useState<string>("Loading...");
+  const [price, setPrice] = useState<any>("Loading...");
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await fetch("https://query1.finance.yahoo.com/v8/finance/chart/^NSEI");
         const data = await res.json();
-        const price = data.chart.result[0].meta.regularMarketPrice;
-        setPrice(price.toString());
-      } catch (err) {
+
+        const price = data?.chart?.result?.[0]?.meta?.regularMarketPrice;
+
+        if (price) {
+          setPrice(price);
+        } else {
+          setPrice("No Data");
+        }
+      } catch (error) {
         setPrice("Error");
       }
     }

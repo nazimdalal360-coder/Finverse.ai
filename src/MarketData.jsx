@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
 
 function MarketData() {
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("Loading...");
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("https://query1.finance.yahoo.com/v8/finance/chart/^NSEI");
-      const data = await res.json();
-      const price = data.chart.result[0].meta.regularMarketPrice;
-      setPrice(price);
+      try {
+        const res = await fetch("https://query1.finance.yahoo.com/v8/finance/chart/^NSEI");
+        const data = await res.json();
+        const price = data.chart.result[0].meta.regularMarketPrice;
+        setPrice(price);
+      } catch (err) {
+        setPrice("Error");
+      }
     }
 
     fetchData();
-    setInterval(fetchData, 5000);
+    const interval = setInterval(fetchData, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (

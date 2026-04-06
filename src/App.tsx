@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
-import { import MarketData from "./MarketData";}
+import React, { useState } from 'react';
+import  MarketData from "./MarketData";
   TrendingUp, 
   TrendingDown, 
   BarChart3, 

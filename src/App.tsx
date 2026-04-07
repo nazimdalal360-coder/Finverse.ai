@@ -19,9 +19,7 @@ import  MarketData from "./MarketData";
   ChevronRight,
   RefreshCw,
   User,
-  Wallet,
-  History
-} from 'lucide-react';
+  import { Wallet, History } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import ReactMarkdown from 'react-markdown';
 import { 

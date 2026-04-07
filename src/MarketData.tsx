@@ -1,35 +1,25 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function MarketData() {
-  const [price, setPrice] = useState<any>("Loading...");
+  const [price, setPrice] = useState("Loading...");
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetch("https://query1.finance.yahoo.com/v8/finance/chart/^NSEI");
-        const data = await res.json();
-
-        const price = data?.chart?.result?.[0]?.meta?.regularMarketPrice;
-
-        if (price) {
-          setPrice(price);
-        } else {
-          setPrice("No Data");
-        }
-      } catch (error) {
-        setPrice("Error");
-      }
-    }
+    const fetchData = async () => {
+      const res = await fetch(
+        "https://query1.finance.yahoo.com/v7/finance/quote?symbols=%5ENSEI"
+      );
+      const data = await res.json();
+      const livePrice = data.quoteResponse.result[0].regularMarketPrice;
+      setPrice(livePrice);
+    };
 
     fetchData();
-    const interval = setInterval(fetchData, 5000);
-
-    return () => clearInterval(interval);
+    setInterval(fetchData, 5000);
   }, []);
 
   return (
     <div>
-      <h2>NIFTY 50</h2>
+      <h2>NIFTY 50 LIVE</h2>
       <h1>{price}</h1>
     </div>
   );

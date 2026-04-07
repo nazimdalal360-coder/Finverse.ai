@@ -4,7 +4,9 @@
  */
 
 import React, { useState } from 'react';
-import  MarketData from "./MarketData";
+import MarketData from "./MarketData";
+
+import { 
   TrendingUp, 
   TrendingDown, 
   BarChart3, 
@@ -19,7 +21,9 @@ import  MarketData from "./MarketData";
   ChevronRight,
   RefreshCw,
   User,
-  import { Wallet, History } from 'lucide-react';
+  Wallet, 
+  History 
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import ReactMarkdown from 'react-markdown';
 import { 

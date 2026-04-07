@@ -45,70 +45,69 @@ import { TradingStyle, RiskProfile, UserProfile, MarketAnalysis } from './types'
 
 // Mock data for the chart
 const mockChartData = [
-  { time: '09:15', price: 22100 },
-  { time: '10:00', price: 22150 },
-  { time: '11:00', price: 22120 },
-  { time: '12:00', price: 22200 },
-  { time: '13:00', price: 22180 },
-  { time: '14:00', price: 22250 },
-  { time: '15:00', price: 22300 },
-  { time: '15:30', price: 22280 },
+  { time: '09:15', price:{livePrice},
+  { time: '10:00', price:{livePrice},
+  { time: '11:00', price:{livePrice},
+  { time: '12:00', price:{livePrice},
+  { time: '13:00', price:{livePrice},
+  { time: '14:00', price:{livePrice},
+  { time: '15:00', price:{livePrice},
+  { time: '15:30', price:{livePrice},
 ];
-
 const sectorData = [
   { 
     name: 'Nifty IT', 
-    change: 1.2, 
+    change:{livePrice}, 
     status: 'Strong', 
     rotation: 'Leading',
     stocks: [
-      { symbol: 'TCS', change: 1.5, status: 'Bullish' },
-      { symbol: 'INFY', change: 1.8, status: 'Strong Bullish' },
-      { symbol: 'WIPRO', change: 0.5, status: 'Neutral' }
+      { symbol: 'TCS', change:{livePrice}, status: 'Bullish' },
+      { symbol: 'INFY', change:{livePrice}, status: 'Strong Bullish' },
+      { symbol: 'WIPRO', change:{livePrice}, status: 'Neutral' }
     ]
   },
   { 
     name: 'Nifty Bank', 
-    change: -0.4, 
-    status: 'Weak', 
-    rotation: 'Lagging',
+    change: {livePrice}, 
+    status: 'Weak' 
+    rotation: 'Lagging'
     stocks: [
-      { symbol: 'HDFCBANK', change: -0.8, status: 'Bearish' },
-      { symbol: 'ICICIBANK', change: 0.2, status: 'Neutral' },
-      { symbol: 'SBIN', change: -0.5, status: 'Weak' }
+      { symbol: 'HDFCBANK', change:{livePrice}, status: 'Bearish' },
+      { symbol: 'ICICIBANK', change:{livePrice}, status: 'Neutral' },
+      { symbol: 'SBIN', change:{livePrice}, status: 'Weak' }
     ]
   },
   { 
     name: 'Nifty Auto', 
-    change: 0.8, 
+    change:{livePrice}, 
     status: 'Neutral', 
     rotation: 'Improving',
     stocks: [
-      { symbol: 'TATAMOTORS', change: 2.1, status: 'Strong Bullish' },
-      { symbol: 'M&M', change: 0.4, status: 'Neutral' },
-      { symbol: 'MARUTI', change: -0.2, status: 'Weak' }
+      { symbol: 'TATAMOTORS', change:{livePrice}, status: 'Strong Bullish' },
+      { symbol: 'M&M', change:{livePrice}, status: 'Neutral' },
+      { symbol: 'MARUTI', change:{livePrice}, status: 'Weak' }
     ]
   },
   { 
     name: 'Nifty Pharma', 
-    change: 2.1, 
+    change:{livePrice}, 
     status: 'Strong', 
     rotation: 'Leading',
     stocks: [
-      { symbol: 'SUNPHARMA', change: 2.5, status: 'Strong Bullish' },
-      { symbol: 'DRREDDY', change: 1.2, status: 'Bullish' },
-      { symbol: 'CIPLA', change: 0.8, status: 'Neutral' }
+      { symbol: 'SUNPHARMA', change:{livePrice}, status: 'Strong Bullish' },
+      { symbol: 'DRREDDY', change:{livePrice}, status: 'Bullish' },
+      { symbol: 'CIPLA', change:{livePrice}, status: 'Neutral' }
     ]
   },
   { 
     name: 'Nifty FMCG', 
-    change: 0.2, 
+    change:{livePrice}, 
     status: 'Neutral', 
     rotation: 'Weakening',
     stocks: [
-      { symbol: 'HUL', change: -0.3, status: 'Neutral' },
-      { symbol: 'ITC', change: 0.5, status: 'Bullish' },
-      { symbol: 'NESTLEIND', change: -0.1, status: 'Neutral' }
+      { symbol: 'HUL', change:{livePrice}, status: 'Neutral' },
+      { symbol: 'ITC', change:{livePrice}, status: 'Bullish' },
+      { symbol: 'NESTLEIND', change:{livePrice}, status: 'Neutral' }
     ]
   },
 ];

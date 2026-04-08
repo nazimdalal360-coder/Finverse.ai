@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-function MarketData() {
-  const [price, setPrice] = useState("Loading...");
+export default function MarketData() {
+  const [price, setPrice] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(
-        "https://query1.finance.yahoo.com/v7/finance/quote?symbols=%5ENSEI"
-      );
-      const data = await res.json();
-      const livePrice = data.quoteResponse.result[0].regularMarketPrice;
-      setPrice(livePrice);
-    };
+    async function fetchData() {
+      try {
+        const res = await fetch("https://api.allorigins.win/raw?url=https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI");
+        const data = await res.json();
+
+        const livePrice = data.chart.result[0].meta.regularMarketPrice;
+        setPrice(livePrice);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
 
     fetchData();
-    setInterval(fetchData, 5000);
   }, []);
 
   return (
-    <div>
-      <h2>NIFTY 50 LIVE</h2>
-      <h1>{price}</h1>
+    <div style={{color: "white", marginBottom: "10px"}}>
+      <h2>NIFTY LIVE</h2>
+      <p>{price ? price : "Loading..."}</p>
     </div>
   );
 }
-
-export default MarketData;
